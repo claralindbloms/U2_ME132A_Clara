@@ -26,6 +26,17 @@ function eraseArtistById(artists, id) {
     }
 }
 
+function getArtistByFirstName(artists, firstname){
+    let artistByFirstName = [];
+
+    for (let artist of artists){
+        if (artist.firstname.toLowerCase() == firstname.toLowerCase()) {
+            artistByFirstName.push(artist);
+        }
+    }
+    return artistByFirstName;
+}
+
 function getArtistsByLastName(artists, lastname) {
     let artistByLastName = [];
 
@@ -46,6 +57,26 @@ function getArtistsByAge(artists, age) {
         }
     }
     return artistsByAge;
+}
+
+function getArtistsByEtnicity(artists, etnicity){
+    let artistByEtnicity = [];
+    for (let artist of artists){
+        if (artist.etnicity.toLowerCase()== etnicity.toLowerCase()){
+            artistByEtnicity.push(artist);
+        }
+    }
+    return artistByEtnicity;
+}
+
+function getArtistsByGender(artists, gender){
+    let artistByGender = [];
+    for (let artist of artists){
+        if (artist.gender.toLowerCase() == gender.toLowerCase()){
+            artistByGender.push(artist);
+        }
+    }
+    return artistByGender;
 }
 
 function placeArtist(artist) {
@@ -82,7 +113,7 @@ function addNewArtistSubmit(event){
     event.preventDefault();
     let firstname = document.getElementById("firstname").value;
     let lastname = document.getElementById("lastname").value;
-    let age = document.getElementById("age").value;
+    let age = Number(document.getElementById("age").value);
     let etnicity = document.getElementById("etnicity").value;
     let gender = document.getElementById("gender").value;
 
@@ -92,5 +123,42 @@ function addNewArtistSubmit(event){
 
     addNewArtistToChart(chart, artist)
     placeArtists(chart);
+
+    let form = document.getElementById("addArtistForm");
+    form.reset();
+}
+
+function setAddArtistControllers (){
+    let form = document.getElementById("addArtistForm");
+    form.addEventListener("submit", addNewArtistSubmit);
+}
+
+function onEraseArtistClick(event){
+    let button = event.target;
+    let id = button.parentElement.id;
+    eraseArtistById(chart, id);
+    placeArtists(chart);
+}
+
+function setEraseArtistControllers(){
+    let buttons = document.querySelectorAll("artist button");
+
+    for (let button of buttons){
+        button.addEventListener("click", onEraseArtistClick);
+    }
+}
+
+function onFilterByEtnicity(event){
+    event.preventDefault();
+    let etnicity = document.getElementById("filterEtnicity").value;
+    let artists = getArtistsByEtnicity(chart, etnicity);
+    placeArtist(artists);
+}
+
+function onFilterByGender(event){
+    event.preventDefault();
+    let gender = document.getElementById("filterGender").value;
+    let artists = getArtistsByGender(chart, gender);
+    placeArtist(artists);
 }
 
