@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,44 @@
     <title>Artists</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+    <h1>Worlds best artists</h1>
+    <form id="addArtistForm">
+        <input id="firstname" type="text" placeholder="FirstName">
+        <input id="lastname" type="text" placeholder="LastName">
+        <input id="age" type="number" placeholder="Age">
+        <input id="etnicity" type="text" placeholder="Etnicity">
+        <input id="gender" type="text" placeholder="Gender">
+    </form>
+
+    <div id="filters">
+        <form id="filterByEtnicity">
+            <input id="filterEtnicity" type="text" placeholder="Filter by etnicity">
+            <button>Filter</button>
+        </form>
+
+        <form id="filterByGender">
+            <input id="filterGender" type="text" placeholder="Filter by gender">
+            <button>Filter</button>
+        </form>
+
+        <button id="showAll" type="button">Show all</button>
+
+    </div>
+
+        <div id="Chart">
+            <div>First Name</div>
+            <div>Last Name</div>
+            <div>Age</div>
+            <div>Etnicity</div>
+            <div>Gender</div>
+        </div>
+
+        <div id="artists"></div>
+
     <script src="database.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
