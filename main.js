@@ -1,6 +1,6 @@
 "use strict";
 
-function createAnArtist(firstname, lastname, age, etnicity, gender) {
+function createNewArtist(firstname, lastname, age, etnicity, gender) {
     let artist = {
         firstname: firstname,
         lastname: lastname,
@@ -148,17 +148,38 @@ function setEraseArtistControllers(){
     }
 }
 
-function onFilterByEtnicity(event){
+function onFilterByEtnicitySubmit(event){
     event.preventDefault();
     let etnicity = document.getElementById("filterEtnicity").value;
     let artists = getArtistsByEtnicity(chart, etnicity);
     placeArtist(artists);
 }
 
-function onFilterByGender(event){
+function onFilterByGenderSubmit(event){
     event.preventDefault();
     let gender = document.getElementById("filterGender").value;
     let artists = getArtistsByGender(chart, gender);
     placeArtist(artists);
 }
+
+function onShowAllClick(){
+    document.getElementById("filterEtnicity").value = "";
+    document.getElementById("filterGender").value = "";
+    placeArtist(chart);
+}
+
+function setFilterArtistControllers(){
+
+    let etnicityForm = document.getElementById("filterByEtnicity");
+    let genderForm = document.getElementById("filterByGender")
+    let showAll = document.getElementById("showAll");
+
+    etnicityForm.addEventListener("submit", onFilterByEtnicitySubmit);
+    genderForm.addEventListener("submit", onFilterByGenderSubmit);
+    showAll.addEventListener("click", onShowAllClick);
+}
+
+placeArtist(chart);
+setAddArtistControllers();
+setFilterArtistControllers();
 
