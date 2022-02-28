@@ -1,6 +1,6 @@
 "use strict";
 
-let database = [
+let chart = [
     {
         id: 1,
         firstName: "Miley",
