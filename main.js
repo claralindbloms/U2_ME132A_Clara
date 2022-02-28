@@ -48,7 +48,7 @@ function getArtistsByAge(artists, age) {
     return artistsByAge;
 }
 
-function placeArtists(artist) {
+function placeArtist(artist) {
     let div = document.createElement("div");
     div.classList.add("artist");
     div.id = artist.id;
@@ -66,7 +66,7 @@ function placeArtists(artist) {
     return div;
 }
 
-function placeArtist(artists) {
+function placeArtists(artists) {
     let artistsElement = document.querySelector("#artists");
     artistsElement.innerHTML = "";
 
@@ -74,5 +74,23 @@ function placeArtist(artists) {
         let artistElement = placeArtist(artist);
         artistsElement.appendChild(artistElement);
     }
+
+    setEraseArtistControllers ();
+}
+
+function addNewArtistSubmit(event){
+    event.preventDefault();
+    let firstname = document.getElementById("firstname").value;
+    let lastname = document.getElementById("lastname").value;
+    let age = document.getElementById("age").value;
+    let etnicity = document.getElementById("etnicity").value;
+    let gender = document.getElementById("gender").value;
+
+    let artist = createNewArtist(firstname, lastname, age, etnicity, gender);
+    
+    artist.id = chart[chart.length - 1].id + 1;
+
+    addNewArtistToChart(chart, artist)
+    placeArtists(chart);
 }
 
