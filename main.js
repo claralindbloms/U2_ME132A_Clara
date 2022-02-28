@@ -38,14 +38,14 @@ function getArtistByFirstName(artists, firstname){
 }
 
 function getArtistsByLastName(artists, lastname) {
-    let artistByLastName = [];
+    let artistsByLastName = [];
 
     for (let artist of artists) {
         if (artist.lastname.toLowerCase() == lastname.toLowerCase()) {
-            artistByLastName.push(artist);
+            artistsByLastName.push(artist);
         }
     }
-    return artistByLastName;
+    return artistsByLastName;
 }
 
 function getArtistsByAge(artists, age) {
@@ -60,23 +60,23 @@ function getArtistsByAge(artists, age) {
 }
 
 function getArtistsByEtnicity(artists, etnicity){
-    let artistByEtnicity = [];
+    let artistsByEtnicity = [];
     for (let artist of artists){
         if (artist.etnicity.toLowerCase()== etnicity.toLowerCase()){
-            artistByEtnicity.push(artist);
+            artistsByEtnicity.push(artist);
         }
     }
-    return artistByEtnicity;
+    return artistsByEtnicity;
 }
 
 function getArtistsByGender(artists, gender){
-    let artistByGender = [];
+    let artistsByGender = [];
     for (let artist of artists){
         if (artist.gender.toLowerCase() == gender.toLowerCase()){
-            artistByGender.push(artist);
+            artistsByGender.push(artist);
         }
     }
-    return artistByGender;
+    return artistsByGender;
 }
 
 function placeArtist(artist) {
@@ -89,9 +89,8 @@ function placeArtist(artist) {
         <div>${artist.lastname}</div>
         <div>${artist.age}</div>
         <div>${artist.etnicity}</div>
-        <div>${artist.firstname}</div>
         <div>${artist.gender}</div>
-        <button type="button">Erase</buttton>
+        <button type="button">Erase</button>
     `;
 
     return div;
@@ -141,7 +140,7 @@ function onEraseArtistClick(event){
 }
 
 function setEraseArtistControllers(){
-    let buttons = document.querySelectorAll("artist button");
+    let buttons = document.querySelectorAll(".artist button");
 
     for (let button of buttons){
         button.addEventListener("click", onEraseArtistClick);
@@ -152,26 +151,26 @@ function onFilterByEtnicitySubmit(event){
     event.preventDefault();
     let etnicity = document.getElementById("filterEtnicity").value;
     let artists = getArtistsByEtnicity(chart, etnicity);
-    placeArtist(artists);
+    placeArtists(artists);
 }
 
 function onFilterByGenderSubmit(event){
     event.preventDefault();
     let gender = document.getElementById("filterGender").value;
     let artists = getArtistsByGender(chart, gender);
-    placeArtist(artists);
+    placeArtists(artists);
 }
 
 function onShowAllClick(){
     document.getElementById("filterEtnicity").value = "";
     document.getElementById("filterGender").value = "";
-    placeArtist(chart);
+    placeArtists(chart);
 }
 
 function setFilterArtistControllers(){
 
     let etnicityForm = document.getElementById("filterByEtnicity");
-    let genderForm = document.getElementById("filterByGender")
+    let genderForm = document.getElementById("filterByGender");
     let showAll = document.getElementById("showAll");
 
     etnicityForm.addEventListener("submit", onFilterByEtnicitySubmit);
@@ -179,7 +178,7 @@ function setFilterArtistControllers(){
     showAll.addEventListener("click", onShowAllClick);
 }
 
-placeArtist(chart);
+placeArtists(chart);
 setAddArtistControllers();
 setFilterArtistControllers();
 

@@ -53,3 +53,16 @@ input {
   margin-right: 50px;
 
 }
+
+#artists {
+    background-color: rgb(151, 255, 168);
+    padding: 15px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+
+
+.artist:nth-child(odd){
+    background-color: rgb(127, 218, 142);
+}
