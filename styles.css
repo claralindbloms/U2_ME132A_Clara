@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    background-color: lightskyblue;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+}
+
+button {
+    font-family: 'Cairo', sans-serif;
+    font-weight: bold;
+    background-color: hotpink;
+    border: black;
+    cursor: pointer;
+}
+
+input {
+    font-family: 'Cairo', sans-serif;
+}
+
+#addArtistForm {
+    display: grid;
+    grid-template-columns: 150px 150px 60px 100px 100px 40px;
+    gap: 15px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+#filters {
+    display: grid;
+    grid-template-columns: 250px 250px 150px;
+    gap: 15px;
+    justify-content: center;
+}
+
+#filterByEtnicity,
+#filterByGender {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+#chart {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  padding: 10px 20px;
+  margin-top: 40px;
+  background-color: hotpink;
+  margin-left: 50px;
+  margin-right: 50px;
+
+}
