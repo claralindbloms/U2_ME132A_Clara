@@ -61,7 +61,11 @@ input {
     margin-right: 50px;
 }
 
-
+.artist {
+    padding: 10px 10px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
 
 .artist:nth-child(odd){
     background-color: rgb(127, 218, 142);
