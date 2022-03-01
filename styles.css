@@ -1,18 +1,26 @@
 body {
     margin: 0;
     font-family: 'Cairo', sans-serif;
-    background-color: lightskyblue;
+    background-color: black;
+    overflow-x: hidden;
 }
 
 h1 {
     text-align: center;
     font-family: 'Anton', sans-serif;
+    color: DarkOrange;
+}
+
+.picture {
+    background-image: url(show.jpg);
+    background-size: cover;
+    height: 213px;
 }
 
 button {
     font-family: 'Cairo', sans-serif;
     font-weight: bold;
-    background-color: hotpink;
+    background-color: Gold;
     border: black;
     cursor: pointer;
 }
@@ -46,17 +54,17 @@ input {
 #chart {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  padding: 10px 20px;
+  padding: 10px 30px;
   margin-top: 40px;
-  background-color: hotpink;
+  background-color: DarkOrange;
   margin-left: 50px;
   margin-right: 50px;
 
 }
 
 #artists {
-    background-color: rgb(151, 255, 168);
-    padding: 15px;
+    background-color: Orange;
+    padding: 15px 20px;
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 0;
@@ -69,5 +77,5 @@ input {
 }
 
 .artist:nth-child(odd){
-    background-color: rgb(127, 218, 142);
+    background-color: DarkOrange;
 }
