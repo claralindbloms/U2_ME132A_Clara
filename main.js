@@ -114,10 +114,30 @@ function placeArtists(artists) {
 function addNewArtistSubmit(event) {
     event.preventDefault();
     let firstname = document.getElementById("firstname").value;
+    if (firstname == "") {
+        alert("Firstname of the artist must be filled out");
+        return false;
+    }
     let lastname = document.getElementById("lastname").value;
+    if (lastname == "") {
+        alert("Lastname of the artist must be filled out");
+        return false;
+    }
     let age = Number(document.getElementById("age").value);
+    if (age == "") {
+        alert("Age of the artist must be filled out");
+        return false;
+    }
     let etnicity = document.getElementById("etnicity").value;
+    if (etnicity == "") {
+        alert("Etnicity of the artist must be filled out");
+        return false;
+    }
     let gender = document.getElementById("gender").value;
+    if (gender == "") {
+        alert("Gender of the artist must be filled out");
+        return false;
+    }
 
     let artist = createNewArtist(firstname, lastname, age, etnicity, gender);
 
@@ -129,6 +149,10 @@ function addNewArtistSubmit(event) {
     let form = document.getElementById("addArtistForm");
     form.reset();
 }
+
+
+
+
 
 function setAddArtistControllers() {
     let form = document.getElementById("addArtistForm");
