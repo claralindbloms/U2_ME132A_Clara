@@ -20,16 +20,19 @@ function eraseArtistById(artists, id) {
     for (let i = 0; i < artists.length; i++) {
         let artist = artists[i];
         if (artist.id == id) {
-            artists.splice(i, 1);
-            return;
+            let confirmArtist = confirm(`Are you sure you want to erase ${artist.firstname} ${artist.lastname}?`);
+            if (confirmArtist) {
+                artists.splice(i, 1);
+                return;
+            }
         }
     }
 }
 
-function getArtistByFirstName(artists, firstname){
+function getArtistByFirstName(artists, firstname) {
     let artistByFirstName = [];
 
-    for (let artist of artists){
+    for (let artist of artists) {
         if (artist.firstname.toLowerCase() == firstname.toLowerCase()) {
             artistByFirstName.push(artist);
         }
@@ -59,20 +62,20 @@ function getArtistsByAge(artists, age) {
     return artistsByAge;
 }
 
-function getArtistsByEtnicity(artists, etnicity){
+function getArtistsByEtnicity(artists, etnicity) {
     let artistsByEtnicity = [];
-    for (let artist of artists){
-        if (artist.etnicity.toLowerCase()== etnicity.toLowerCase()){
+    for (let artist of artists) {
+        if (artist.etnicity.toLowerCase() == etnicity.toLowerCase()) {
             artistsByEtnicity.push(artist);
         }
     }
     return artistsByEtnicity;
 }
 
-function getArtistsByGender(artists, gender){
+function getArtistsByGender(artists, gender) {
     let artistsByGender = [];
-    for (let artist of artists){
-        if (artist.gender.toLowerCase() == gender.toLowerCase()){
+    for (let artist of artists) {
+        if (artist.gender.toLowerCase() == gender.toLowerCase()) {
             artistsByGender.push(artist);
         }
     }
@@ -105,10 +108,10 @@ function placeArtists(artists) {
         artistsElement.appendChild(artistElement);
     }
 
-    setEraseArtistControllers ();
+    setEraseArtistControllers();
 }
 
-function addNewArtistSubmit(event){
+function addNewArtistSubmit(event) {
     event.preventDefault();
     let firstname = document.getElementById("firstname").value;
     let lastname = document.getElementById("lastname").value;
@@ -117,7 +120,7 @@ function addNewArtistSubmit(event){
     let gender = document.getElementById("gender").value;
 
     let artist = createNewArtist(firstname, lastname, age, etnicity, gender);
-    
+
     artist.id = chart[chart.length - 1].id + 1;
 
     addNewArtistToChart(chart, artist)
@@ -127,47 +130,48 @@ function addNewArtistSubmit(event){
     form.reset();
 }
 
-function setAddArtistControllers (){
+function setAddArtistControllers() {
     let form = document.getElementById("addArtistForm");
     form.addEventListener("submit", addNewArtistSubmit);
+
 }
 
-function onEraseArtistClick(event){
+function onEraseArtistClick(event) {
     let button = event.target;
     let id = button.parentElement.id;
     eraseArtistById(chart, id);
     placeArtists(chart);
 }
 
-function setEraseArtistControllers(){
+function setEraseArtistControllers() {
     let buttons = document.querySelectorAll(".artist button");
 
-    for (let button of buttons){
+    for (let button of buttons) {
         button.addEventListener("click", onEraseArtistClick);
     }
 }
 
-function onFilterByEtnicitySubmit(event){
+function onFilterByEtnicitySubmit(event) {
     event.preventDefault();
     let etnicity = document.getElementById("filterEtnicity").value;
     let artists = getArtistsByEtnicity(chart, etnicity);
     placeArtists(artists);
 }
 
-function onFilterByGenderSubmit(event){
+function onFilterByGenderSubmit(event) {
     event.preventDefault();
     let gender = document.getElementById("filterGender").value;
     let artists = getArtistsByGender(chart, gender);
     placeArtists(artists);
 }
 
-function onShowAllClick(){
+function onShowAllClick() {
     document.getElementById("filterEtnicity").value = "";
     document.getElementById("filterGender").value = "";
     placeArtists(chart);
 }
 
-function setFilterArtistControllers(){
+function setFilterArtistControllers() {
 
     let etnicityForm = document.getElementById("filterByEtnicity");
     let genderForm = document.getElementById("filterByGender");
