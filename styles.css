@@ -47,20 +47,20 @@ input {
 
 #filterByEtnicity,
 #filterByGender {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
 }
 
 #chart {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  padding: 10px 30px;
-  margin-top: 40px;
-  background-color: DarkOrange;
-  margin-left: 50px;
-  margin-right: 50px;
-  font-weight: bold;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    padding: 10px 30px;
+    margin-top: 40px;
+    background-color: DarkOrange;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-weight: bold;
 
 }
 

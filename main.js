@@ -1,5 +1,10 @@
 "use strict";
 
+
+
+//Link 2 github:
+//https://github.com/claralindbloms/U2_ME132A_Clara.git
+
 function createNewArtist(firstname, lastname, age, etnicity, gender) {
     let artist = {
         firstname: firstname,
